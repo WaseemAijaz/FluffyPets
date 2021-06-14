@@ -20,6 +20,8 @@ const orderSchema = new mongoose.Schema(
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
+      lat: Number,
+      lng: Number,
     },
     paymentMethod: { type: String, required: true },
     paymentResult: {
@@ -32,7 +34,8 @@ const orderSchema = new mongoose.Schema(
     shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    user: { type: mongoose.Schema.Types.ObjectID, ref: 'User', required: true },
+    seller: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
     isPaid: { type: Boolean, default: false },
     paidAt: { type: Date },
     isDelivered: { type: Boolean, default: false },
